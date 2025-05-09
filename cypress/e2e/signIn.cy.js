@@ -5,7 +5,7 @@ describe('Sign In page', () => {
     cy.visit('https://the-internet.herokuapp.com/login');
   });
 
-   it('should login successfully with valid credentials', () => {
+  it('should login successfully with valid credentials', () => {
     cy.get('#username').type('tomsmith');
     cy.get('#password').type('SuperSecretPassword!');
     cy.get('.fa').click();
@@ -25,7 +25,7 @@ describe('Sign In page', () => {
     cy.get('.fa').click();
     cy.get('h2').contains('Secure Area');
 
-    cy.get('.icon-2x').click();
+    cy.get('a[href="/logout"]').click();
     cy.url().should('include', '/login');
     cy.get('h2').contains('Login Page');
   });
